@@ -1,6 +1,17 @@
 # One-On-One Chat App
 
-## Overview
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
+
+## Introduction
 
 This is a One-on-One Chat Application built using Spring Boot and WebSocket, with Docker for containerization, MongoDB for data storage, and Mongo Express for database management. The application allows users to chat with each other in real time.
 
@@ -23,10 +34,9 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
 
 ## Getting Started
 
-### Prerequisites
+![image](https://github.com/user-attachments/assets/4f58a943-7fbe-494b-8e68-41d9dca8f84c)
 
-- Docker (for containerization)
-- Java 17 or later
+
 
 ## Usage
 
