@@ -34,9 +34,15 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
 
 ## Getting Started
 
-![image](https://github.com/user-attachments/assets/4f58a943-7fbe-494b-8e68-41d9dca8f84c)
+1. Add nickname and fullname.
+       Start by adding your nickname and full name within the application.
 
+![image](https://github.com/user-attachments/assets/6e7ad9b7-ff07-4c17-bd93-28deb37fc009)
 
+2. Start chatting.
+       Begin chatting with other connected users in real time.
+   
+![image](https://github.com/user-attachments/assets/0b59e08b-abdf-4a52-8f91-952d3c5b54d6)
 
 ## Usage
 
@@ -59,6 +65,7 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
     ```
 
 5. Running Application
+    Create a database with the name specified in the `application.config`. You can also change the database name in the `application.config` file if needed.
   
    ```bash
    Mongo Express: http://localhost:8081 (for managing MongoDB data)
@@ -68,11 +75,11 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
    Chat Application: http://localhost:8080
    ```
 
-##Contributing
+## Contributing
 
 If you would like to contribute to this project, please fork the repository and submit a pull request. Ensure that your changes are well-tested and documented.
 
-##License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
