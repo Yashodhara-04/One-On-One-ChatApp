@@ -13,6 +13,7 @@ let stompClient = null;
 let nickname = null;
 let fullname = null;
 let selectedUserId = null;
+let numberOfMessages = 0;
 
 function connect(event) {
     nickname = document.querySelector('#nickname').value.trim();
@@ -75,7 +76,7 @@ function appendUserElement(user, connectedUsersList) {
     usernameSpan.textContent = user.fullName;
 
     const receivedMsgs = document.createElement('span');
-    receivedMsgs.textContent = '0';
+    receivedMsgs.textContent = '';
     receivedMsgs.classList.add('nbr-msg', 'hidden');
 
     listItem.appendChild(userImage);
@@ -88,6 +89,7 @@ function appendUserElement(user, connectedUsersList) {
 }
 
 function userItemClick(event) {
+
     document.querySelectorAll('.user-item').forEach(item => {
         item.classList.remove('active');
     });
@@ -100,9 +102,11 @@ function userItemClick(event) {
     fetchAndDisplayUserChat().then();
 
     const nbrMsg = clickedUser.querySelector('.nbr-msg');
-    nbrMsg.classList.add('hidden');
-    nbrMsg.textContent = '0';
-
+    if (nbrMsg) {
+        nbrMsg.textContent = '';
+        nbrMsg.classList.add('hidden');
+    }
+    numberOfMessages = 0;
 }
 
 function displayMessage(senderId, content) {
@@ -155,6 +159,8 @@ function sendMessage(event) {
 
 
 async function onMessageReceived(payload) {
+    numberOfMessages+=1;
+    console.log("numberOfMessages ",  numberOfMessages);
     await findAndDisplayConnectedUsers();
     console.log('Message received', payload);
     const message = JSON.parse(payload.body);
@@ -163,17 +169,20 @@ async function onMessageReceived(payload) {
         chatArea.scrollTop = chatArea.scrollHeight;
     }
 
+    // Update the notification for the user who sent the message
+    const notifiedUser = document.querySelector(`#${message.senderId}`);
+    if (notifiedUser) {
+        const nbrMsg = notifiedUser.querySelector('.nbr-msg');
+        if (nbrMsg) {
+            nbrMsg.textContent = numberOfMessages; // Show the number of unread messages
+            nbrMsg.classList.remove('hidden'); // Ensure the notification is visible
+        }
+    }
+
     if (selectedUserId) {
         document.querySelector(`#${selectedUserId}`).classList.add('active');
     } else {
         messageForm.classList.add('hidden');
-    }
-
-    const notifiedUser = document.querySelector(`#${message.senderId}`);
-    if (notifiedUser && !notifiedUser.classList.contains('active')) {
-        const nbrMsg = notifiedUser.querySelector('.nbr-msg');
-        nbrMsg.classList.remove('hidden');
-        nbrMsg.textContent = '';
     }
 }
 
