@@ -137,12 +137,12 @@ h2{
 
 .user-item span.nbr-msg {
     margin-left: 10px;
-    color: white;
+    color: black;
     border-radius: 50%;
     display: inline-block;
     min-width: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     position: absolute;
     right: 12px;
     top: 16px;
