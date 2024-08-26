@@ -40,6 +40,6 @@ public class UserService {
 
     public List<User> getConnectedUser()
     {
-        return repository.findAll();
+        return repository.findAllByStatus(UserStatus.ONLINE);
     }
 }
