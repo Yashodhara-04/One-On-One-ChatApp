@@ -102,7 +102,11 @@ function userItemClick(event) {
     fetchAndDisplayUserChat().then();
 
     const nbrMsg = clickedUser.querySelector('.nbr-msg');
-    nbrMsg.classList.add('hidden');
+    if (nbrMsg) {
+        nbrMsg.textContent = '';
+        nbrMsg.classList.add('hidden');
+    }
+    numberOfMessages = 0;
 }
 
 function displayMessage(senderId, content) {
@@ -165,21 +169,20 @@ async function onMessageReceived(payload) {
         chatArea.scrollTop = chatArea.scrollHeight;
     }
 
-    if (selectedUserId) {
-        document.querySelector(`#${selectedUserId}`).classList.add('active');
-        numberOfMessages = 0;
-        nbrMsg.textContent = '';
-    } else {
-        messageForm.classList.add('hidden');
-    }
-
+    // Update the notification for the user who sent the message
     const notifiedUser = document.querySelector(`#${message.senderId}`);
-    if (notifiedUser && !notifiedUser.classList.contains('active')) {
+    if (notifiedUser) {
         const nbrMsg = notifiedUser.querySelector('.nbr-msg');
         if (nbrMsg) {
             nbrMsg.textContent = numberOfMessages; // Show the number of unread messages
             nbrMsg.classList.remove('hidden'); // Ensure the notification is visible
         }
+    }
+
+    if (selectedUserId) {
+        document.querySelector(`#${selectedUserId}`).classList.add('active');
+    } else {
+        messageForm.classList.add('hidden');
     }
 }
 
