@@ -1,6 +1,5 @@
 package WebSocket.example.One_on_One.Chat.Application.user;
 
-import WebSocket.example.One_on_One.Chat.Application.chat.ChatMessage;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,19 @@ import java.util.List;
 public class UserService {
     @Autowired
     private final UserRepository repository;
-    private final ChatMessage chatMessage;
 
     public void saveUser(User user)
     {
-        user.setStatus(UserStatus.ONLINE);
-        repository.save(user);
+        try
+        {
+            user.setStatus(UserStatus.ONLINE);
+            repository.save(user);
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+
     }
 
     public void disconnectUser(User user)
@@ -34,6 +40,6 @@ public class UserService {
 
     public List<User> getConnectedUser()
     {
-        return repository.findAllByStatus(UserStatus.ONLINE);
+        return repository.findAll();
     }
 }
