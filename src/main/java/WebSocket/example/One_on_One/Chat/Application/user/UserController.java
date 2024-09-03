@@ -1,23 +1,20 @@
 package WebSocket.example.One_on_One.Chat.Application.user;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Locale;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class UserController {
 
@@ -39,6 +36,20 @@ public class UserController {
         return user;
     }
 
+    @Operation(
+            tags = "GET Users",
+            description = "Gets all the online user details",
+            responses = {
+                    @ApiResponse(
+                            description = "Success",
+                            responseCode = "200Ok"
+                    ),
+                    @ApiResponse(
+                            description = "Error!! Api not found",
+                            responseCode = "404Not Found"
+                    )
+            }
+    )
     @GetMapping("/getUsers")
     public ResponseEntity<List<User>> getAllUser()
     {
