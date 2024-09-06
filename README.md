@@ -21,7 +21,7 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
 
 - **Real-Time Messaging:** Utilizes WebSocket to facilitate real-time communication between users.
 - **Chat History:** Stores and retrieves chat history from MongoDB.
-- **User details:** Store Online user details.
+- **User details:** Stores connected user details.
 
 ## Technologies Used
 
