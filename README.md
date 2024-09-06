@@ -59,8 +59,8 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
 
 **1. Clone the repository:**
 
-    ```bash
-   git clone https://github.com/Yashodhara-04/One-On-One_ChatApp.git
+  ```bash
+  https://github.com/Yashodhara-04/One-On-One_ChatApp.git
    ``` 
 
 **2. Add Connection string:**
@@ -69,8 +69,8 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
       
 **4. Run the `Main` class:**
 
-   ```bash
-   java Main
+  ```bash
+  java Main
    ```
 
 **5. Running Application**
@@ -80,11 +80,10 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
    ```
 
 ## Contributing
+ If you would like to contribute to this project, please fork the repository and submit a pull request. Ensure that your changes
  are well-tested and documented.
 
 ## License
-If you would like to contribute to this project, please fork the repository and submit a pull request. Ensure that your changes
-
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Author
