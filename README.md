@@ -67,13 +67,13 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
    - Create a new database with the name specified in the `application.config` file. You can also modify the database name in the `application.config` if needed. I have used MongoDB Atlas in my application, but feel free to use any database of your choice and configure it accordingly.
 
       
-**4. Run the `Main` class:**
+**3. Run the `Main` class:**
 
   ```bash
   java Main
    ```
 
-**5. Running Application**
+**4. Running Application**
 
    ```bash
    http://localhost:8080
