@@ -7,15 +7,16 @@ A real-time messaging application for private, one-on-one conversations, built u
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
 - [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Getting Started](#getting-started)
 - [Contributing](#contributing)
 - [License](#license)
 - [Author](#author)
 
 ## Introduction
 
-This is a One-on-One Chat Application built using Spring Boot and WebSocket, with Docker for containerization, MongoDB for data storage. The application allows users to chat with each other in real-time.
+This is a One-on-One Chat Application built using Spring Boot and WebSocket, with Docker for containerization, and MongoDB for data storage. The application allows users to chat with each other in real-time.
 
 ## Features
 
@@ -53,6 +54,14 @@ This is a One-on-One Chat Application built using Spring Boot and WebSocket, wit
 - Begin texting with other connected users in real time.
    
 ![image](https://github.com/user-attachments/assets/0b59e08b-abdf-4a52-8f91-952d3c5b54d6)
+
+## API Documentation
+You can access the full API documentation through Swagger UI once the application is running.
+
+- **Swagger URL:**
+```bash
+http://localhost:8080/swagger-ui.html
+```
 
 
 ## Getting Started
