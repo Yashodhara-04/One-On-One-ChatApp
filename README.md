@@ -1,6 +1,6 @@
-# One-On-One Chat App
+# Spring Security
 
-A real-time messaging application for private, one-on-one conversations, built using Spring Boot.
+Implemented a Spring Security project to learn and apply authentication in a Spring Boot application.
 
 ## Table of Contents
 
@@ -8,7 +8,6 @@ A real-time messaging application for private, one-on-one conversations, built u
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
-- [API Documentation](#api-documentation)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 - [License](#license)
@@ -16,65 +15,81 @@ A real-time messaging application for private, one-on-one conversations, built u
 
 ## Introduction
 
-This is a One-on-One Chat Application built using Spring Boot and WebSocket, with Docker for containerization, and MongoDB for data storage. The application allows users to chat with each other in real-time.
+Created a Spring Security project to gain hands-on experience with authentication in a Spring Boot application. This project will help understand the internal workings of Spring Security and how to customize it for specific security needs.
 
 ## Features
 
-- **Real-Time Messaging:** Utilizes WebSocket to facilitate real-time communication between users.
-- **Chat History:** Stores and retrieves chat history from MongoDB.
-- **User details:** Stores connected user details.
+- **User Authentication:** Implemented secure user login with password encryption using Spring Security’s authentication mechanisms.
+- **Session Management:** Replaced traditional session management with stateless JWT token-based authentication.
+- **CSRF Protection:** Disabled CSRF protection for stateless JWT authentication, ensuring secure API communication.
 
 ## Technologies Used
 
-- **Spring Boot:** For creating the REST API and WebSocket endpoints.
-- **WebSocket:** For real-time communication.
-- **MongoDB:** To store user data and chat messages.
-- **Docker:** For containerizing the application and MongoDB.
-- **Swagger:** To design, build, document, and consume REST APIs.
-- **HTML:** For structuring the user interface.
-- **CSS:** For styling the user interface and ensuring responsiveness.
-- **JavaScript:** For client-side scripting and handling real-time chat interactions.
+- **Spring Boot:** For building the core application.
+- **Spring Security:** To implement authentication, authorization, and access control.
+- **JWT (JSON Web Token):** For stateless user authentication and authorization.
+- **Java:** The primary programming language for the project.
+- **Maven:** For project management and dependency management.
+- **MySQL:** For storing user data (depending on the database used).
 
   ## Usage
 
 **1. Run Application**
-   - The project has been successfully deployed on Render. Kindly use the below URL.
+   - Run the project.
      
-   ```bash
-   https://one-on-one-chatapplication.onrender.com/
+  ```bash
+   http://localhost:8080
    ```
 
-**2. Add a nickname and full name**
-- Begin by entering your nickname and full name. You may also invite a friend to do the same or open another tab to add a new user.
+**2. Save Username and Password**
+  - Save Username and Password for login.
+  ```bash
+   http://localhost:8080/User
+   ```
+  ```bash
+   {
+    "id":   1,
+    "username": "SpringSecurity",
+    "password": "sp@123"
+   }
+   ```
 
-![image](https://github.com/user-attachments/assets/6e7ad9b7-ff07-4c17-bd93-28deb37fc009)
+![Screenshot 2024-09-12 222303](https://github.com/user-attachments/assets/aed0135b-d5a2-45ff-9496-a3656168f1db)
 
-**3. Start chatting**
-- When the second user joins the chat, he will be able to see all the other connected users.
-- Begin texting with other connected users in real time.
-   
-![image](https://github.com/user-attachments/assets/0b59e08b-abdf-4a52-8f91-952d3c5b54d6)
+**3. Check DB**
 
-## API Documentation
-You can access the full API documentation through Swagger UI once the application is running.
+![Screenshot 2024-09-12 222509](https://github.com/user-attachments/assets/4e0166dc-8b5f-43ee-a46c-b88b8c8689e9)
 
-- **Swagger URL:**
-```bash
-http://localhost:8080/swagger-ui.html
-```
 
+**4. Login API**
+   - Call Login API that sets security context and returns JWT token.
+  ```bash
+   http://localhost:8080/login
+   ```
+  ```bash
+   {
+    "username": "SpringSecurity",
+    "password": "sp@123"
+  }
+   ```
+
+![Screenshot 2024-09-12 222336](https://github.com/user-attachments/assets/58d9e957-8922-4dd5-827e-acaaf550f403)
+
+**5. Student API**
+   - Call the Student API by passing the obtained JWT token to test authorization.
+  ```bash
+  http://localhost:8080/students
+   ```
+
+![Screenshot 2024-09-12 225351](https://github.com/user-attachments/assets/99e5e240-9f96-4437-97ae-7737036c6a9f)
 
 ## Getting Started
 
 **1. Clone the repository:**
 
   ```bash
-  https://github.com/Yashodhara-04/One-On-One_ChatApp.git
+  git clone https://github.com/Yashodhara-04/Spring-Security.git
    ``` 
-
-**2. Add Connection string:**
-   - Create a new database with the name specified in the `application.config` file. You can also modify the database name in the `application.config` if needed. I have used MongoDB Atlas in my application, but feel free to use any database of your choice and configure it accordingly.
-
       
 **3. Run the `Main` class:**
 
